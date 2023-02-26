@@ -16,7 +16,25 @@ public class UserServices {
 	public UserServices() {
 		
 		list.add(new User("abc" , "abc@gmail.com" , "abc"));
+		list.add(new User("xyz" , "xyz@gmail.com" , "xyz"));
+		
 	}
 	
+	public List<User> getalllist()
+	{
+		return this.list;
+	}
+	
+	public User getUser(String username)
+	{
+		return this.list.stream().filter((User)-> User.getUserName().equals(username)).findAny().orElse(null);
+		
+	}
+	
+	public User addUser(User user)
+	{
+		this.list.add(user);
+		return user;
+	}
 	
 }
